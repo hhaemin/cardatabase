@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // 데이터베이스가 자동으로 ID를 생성하도록 지정
-    private Long id;
+    private long id;
     private String brand, model, color, registerNumber;
     @Column(name = "`year`")
     private int year;
@@ -25,11 +25,11 @@ public class Car {
         this.price = price;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
