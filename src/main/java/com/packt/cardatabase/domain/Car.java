@@ -27,7 +27,7 @@ public class Car {
     public Car() {}
 
     // 자동으로 ID를 생성하도록 설정해 둔 덕분에 생성자에 ID 필드는 필요없다.
-    public Car(String brand, String model, String color, String registerNumber, int year, int price) {
+    public Car(String brand, String model, String color, String registerNumber, int year, int price, Owner owner) {
         super();
         this.brand = brand;
         this.model = model;
@@ -35,6 +35,7 @@ public class Car {
         this.registerNumber = registerNumber;
         this.year = year;
         this.price = price;
+        this.owner = owner;
     }
 
     public long getId() {
