@@ -1,9 +1,8 @@
 package com.packt.cardatabase.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Owner {
@@ -11,6 +10,20 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ownerid;
     private String firstname, lastname;
+
+    // 소유자가 자동차 여러 대를 가질 수 있으므로 List 사용
+    // CascadeType.ALL : 삭제 또는 업데이트 시 연속 효과가 적용된다. 예) 소유자를 삭제하면 연결된 모든 자동차 삭제
+    // mappedBy="owner" : Car 클래스에 있는 owner 필드가 이 관계의 기본키이다.
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Car> cars;
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
 
     public Owner() {
     }

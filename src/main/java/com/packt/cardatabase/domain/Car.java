@@ -12,6 +12,18 @@ public class Car {
     private int year;
     private int price;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner")
+    private Owner owner;
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
     public Car() {}
 
     // 자동으로 ID를 생성하도록 설정해 둔 덕분에 생성자에 ID 필드는 필요없다.
