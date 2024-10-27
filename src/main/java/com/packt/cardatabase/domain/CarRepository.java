@@ -1,9 +1,11 @@
 package com.packt.cardatabase.domain;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+//@RepositoryRestResource(path = "vehicles")
 public interface CarRepository extends CrudRepository<Car, Long> {
     // 브랜드로 자동차 검색
     List<Car> findByBrand(String brand);
