@@ -94,3 +94,4 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 spring.data.rest.basePath=/api
 ```
+- 스프링 데이터 REST 서비스는 모든 CRUD 작업을 제
